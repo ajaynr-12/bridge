@@ -1,0 +1,59 @@
+type ListingsAndReviews {
+    _id: String!
+    name: String
+    summary: String
+    house_rules: String
+    property_type: String
+    room_type: String
+    minimum_nights: String
+    maximum_nights: String
+    cancellation_policy: String
+    accommodates: Int
+    bedrooms: Int
+    beds: Int
+    bathrooms: Int
+    number_of_reviews: Int
+    price: Int
+    security_deposit: Int
+    cleaning_fee: Int
+    address: Address
+    images: Images
+    review_scores: ReviewScores
+    reviews: [Reviews]
+}
+
+type Address {
+    street: String
+    suburb: String
+    government_area: String
+    market: String 
+    country: String
+    country_code: String
+}
+
+type Images {
+    picture_url: String
+}
+
+type ReviewScores {
+    review_scores_accuracy: Int
+    review_scores_cleanliness: Int
+    review_scores_checkin: Int
+    review_scores_communication: Int
+    review_scores_location: Int
+    review_scores_value: Int
+    review_scores_rating: Int
+}
+
+type Reviews{
+    _id: String
+    date: String
+    reviewer_id: String
+    reviewer_name: String
+    comments: String
+}
+
+type Query{
+    findAll: [ListingsAndReviews]
+    findById(_id: String): ListingsAndReviews
+}
