@@ -53,7 +53,13 @@ type Reviews{
     comments: String
 }
 
+type Data{
+    data: [ListingsAndReviews]
+    limit: Int
+    offset: Int
+}
 type Query{
     findAll: [ListingsAndReviews]
     findById(_id: String): ListingsAndReviews
+    getListingsAndReviewsWithLimitAndSkip(limit: Int, offset: Int): [ListingsAndReviews]
 }

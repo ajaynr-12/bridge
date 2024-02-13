@@ -7,5 +7,4 @@ import com.stayhub.bridge.Model.ListingsAndReviews;
 
 @Repository
 public interface ListingsAndReviewsRepo extends MongoRepository<ListingsAndReviews, String>{
-    
 }
