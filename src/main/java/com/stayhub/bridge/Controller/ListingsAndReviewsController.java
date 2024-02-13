@@ -9,6 +9,7 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 
 import com.stayhub.bridge.Model.ListingsAndReviews;
 import com.stayhub.bridge.Services.ListingsAndReviewsService;
+import com.stayhub.bridge.Model.Filter;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,5 +37,10 @@ public class ListingsAndReviewsController {
     @QueryMapping
     public List<ListingsAndReviews> getListingsAndReviewsWithLimitAndSkip(@Argument int limit, @Argument int offset) {
         return listingsAndReviewsService.getListingsAndReviewsWithLimitAndSkip(limit, offset);
+    }
+
+    @QueryMapping
+    public List<ListingsAndReviews> filterListingsAndReviews(@Argument Filter filter,@Argument int limit, @Argument int offset){
+        return listingsAndReviewsService.filterListingsAndReviews(filter,limit, offset);
     }
 }

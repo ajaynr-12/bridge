@@ -53,13 +53,19 @@ type Reviews{
     comments: String
 }
 
-type Data{
-    data: [ListingsAndReviews]
-    limit: Int
-    offset: Int
+input Filter{
+    minPrice: Int
+    maxPrice: Int
+    bedrooms: Int
+    bathrooms: Int
+    beds: Int
+    accommodates: Int
+    country: String
 }
+
 type Query{
     findAll: [ListingsAndReviews]
     findById(_id: String): ListingsAndReviews
     getListingsAndReviewsWithLimitAndSkip(limit: Int, offset: Int): [ListingsAndReviews]
+    filterListingsAndReviews(filter: Filter, limit: Int, offset: Int): [ListingsAndReviews]
 }
